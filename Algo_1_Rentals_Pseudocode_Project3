@@ -1,0 +1,12 @@
+function min_rentals(times):
+    times.sort by first element
+    min_heap ← []
+
+    for start, end in times:
+        if min_heap is not empty and start >= min_heap[0]:
+            heappop(min_heap) # remove the smallest end time value from min-heap
+        end if
+        heappush(min_heap, end) # add end to min-heap
+    end for
+
+    return length(min_heap)

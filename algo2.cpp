@@ -2,29 +2,37 @@
 
 #include <iostream>
 #include <vector>
-int networkDelay(std::vector<std::vector<int>> network, int nodes, int signal) {
+
+// Algorithm for solving the network delay based on passed in information
+int networkDelay(std::vector<std::vector<int>> network, int nodes, int signal, int totNet) {
+    // Counter to maintain the total delay across the network, started at -1 at default if there is no delay present
     int counter = -1;
-    for (int i = 0; i < network.size(); i++) {
-        if (network[i][1] == signal) {
+
+    // Loops through all network nodes to determine any present nodes that are designated that receive the signal
+    for (int i = 0; i < totNet; i++) {
+        if (network[i][0] == signal) {
+            // If there is a node present that will receive the signal, then the counter jumps from -1 to 1
             if (counter == -1) {
-                counter = 1;
+                counter++;
             };
             counter++;
         };
     };
+    // Returns the total delay
     return counter;
 }
 
 int main() {
-    bool choice = true;
-    while(choice == true) {
-        int nodes, signalNode;
+    char confirm2 = 'y';
+    while(confirm2 == 'y' || confirm2 == 'Y') {
+        int nodes, signalNode, counter = 0;
         bool vecCheck = true;
+        char confirm = 'y';
         std::vector<std::vector<int>> network;
         
-        while (vecCheck) {
+        // Loop for the user to input the nodes for the network
+        while (confirm == 'y' || confirm == 'Y') {
             std::vector<int> temp;
-            char confirm;
             int temp1 = 0,
                 temp2 = 0,
                 temp3 = 0;
@@ -43,12 +51,10 @@ int main() {
             std::cout << temp[0] << " " << temp[1] << " " << temp[2] << std::endl;
             network.push_back(temp);
 
+            counter++;
+
             std::cout << "Do you want to add another set of nodes. [y,n]" << std::endl;
             std::cin >> confirm;
-
-            if(confirm != 'y' || confirm != 'Y') {
-                vecCheck = false;
-            };
         };
         
         std::cout << "Input the number of nodes within the network" << std::endl;
@@ -56,15 +62,19 @@ int main() {
         std::cout << "Input the source node for the signal" << std::endl;
         std::cin >> signalNode;
 
-        std::cout << "You have inputted: [";
-        for (int i = 0; i < nodes; i++) {
+        // Returns the final inputs from the user in the format designated in the instructions
+        std::cout << "You have inputted: ";
+        for (int i = 0; i < counter; i++) {
             std::cout << "[" << network[i][0] << ","
-                    << network[i][1] << "," << network[i][2] << "],";
+                    << network[i][1] << "," << network[i][2] << "] ";
         };
-        std::cout << " n = " << nodes << ", k = " << signalNode << std::endl;
-        std::cout << network.size() << std::endl;
+        std::cout << "n = " << nodes << ", k = " << signalNode << std::endl;
 
-        std::cout << "The minimum time it takes for all " << nodes << " to receive this signal is "
-                  << networkDelay(network, nodes, signalNode) << std::endl;
+        // Returns the total delay by passing the information within the the network
+        std::cout << "The minimum time it takes for all " << nodes << " node(s) to receive this signal is: "
+                  << networkDelay(network, nodes, signalNode, counter) << std::endl;
+        
+        std::cout << "Do you want to check another network? [y,n]" << std::endl;
+        std::cin >> confirm2;
     };
 };

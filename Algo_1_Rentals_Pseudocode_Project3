@@ -10,3 +10,5 @@ function min_rentals(times):
     end for
 
     return length(min_heap)
+
+end function

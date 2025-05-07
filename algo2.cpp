@@ -15,7 +15,7 @@ int networkDelay(std::vector<std::vector<int>> network, int nodes, int signal, i
             if (counter == -1) {
                 counter++;
             };
-            counter++;
+            counter+=network[i][2];
         };
     };
     // Returns the total delay

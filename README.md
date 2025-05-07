@@ -1,0 +1,6 @@
+# CPSC-355 Project 3
+## By: Ekaterina Miakotina & Evan Wenzel
+### Emails: kmiakotina@csu.fullerton.edu & xevanx2002@csu.fullerton.edu
+
+## How to Execute the Programs
+The two programs are created in differing languages, algorithm 1 in Python and algorithm 2 in C++. For algorithm 1 make sure that you have python installed, if not refer to https://www.python.org/downloads/windows/ for the install proces. After verifying it works, open a cmd or powershell terminal within the same folder as Algo_1_Rentals_Project3.py file. Once there run the command "python Algo_1_Rentals_Project3.py" in the terminal and you will be prompted with the inputs for the algorithm. For algorithm 2, run the submitted algo2.exe file that has been provided. This will execute the program within a created terminal, promting the user to input the necesary data for the program to execute the necesary steps and solve the problem. After solving the problem, the program will ask the user if they wish to start again and will loop back to the begining of the program.

@@ -1,0 +1,8 @@
+function networkCheck(network, signal) {
+    int counter = -1;
+        for i = 0; i < network.size; i++
+            if network[i] == signal && counter == -1
+                counter++
+            counter+= network[i][2];
+    return counter;
+}

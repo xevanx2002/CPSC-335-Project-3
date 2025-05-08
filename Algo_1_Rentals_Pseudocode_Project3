@@ -1,3 +1,8 @@
+Statement: Provided a list of time intervals when students need laptops, return the minimum number of laptops that are needed. 
+So, no two overlapping intervals share the same laptop.
+Input: a list of n intervals, where each interval is a 2-tuple (start, end) with 0<=start<end, showing the time when a student needs a laptop
+Output: an integer k that represents the minimum number of non-overlapping laptops that are needed 
+
 function min_rentals(times):
     times.sort by first element
     min_heap ← []

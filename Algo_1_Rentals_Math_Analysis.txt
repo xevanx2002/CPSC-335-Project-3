@@ -1,0 +1,17 @@
+function min_rentals(times):
+    times.sort by first element # TC: O(n log n)
+    min_heap ← [] # TC: O(1)
+
+    for start, end in times: # TC: O(n)
+        if min_heap is not empty and start >= min_heap[0]: # TC: O(1)
+            heappop(min_heap)  # TC: O(log n)
+        end if
+        heappush(min_heap, end) # TC: O(log n)
+    end for
+
+    return length(min_heap) # TC: O(1)
+
+end function
+
+Time Complexity: O(n log n)
+Space Complexity: O(n) - in the worst case, all n intervals have a chance to overlap, making us to store n end time values in the heap at the same time.

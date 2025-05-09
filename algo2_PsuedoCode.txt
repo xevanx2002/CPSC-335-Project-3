@@ -1,3 +1,7 @@
+Statement: Provided a list of network nodes that contain the index, neighbor node, and the delay between them, as well as the node that receives the signal. Utilizing this algorithm to calculate the delay from different starting nodes.
+Input: A list of n nodes, where each node has 3 components that contain the starting node, the target node, and the delay time between them, as well as the source node for the signal.
+Output: An integer k that represents the total delay within the system based on the nodes.
+
 function networkCheck(network, signal) {
     int counter = -1;
         for i = 0; i < network.size; i++
